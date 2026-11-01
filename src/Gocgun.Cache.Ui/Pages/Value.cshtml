@@ -1,0 +1,15 @@
+﻿@page
+@model Gocgun.Cache.Ui.Pages.ValueModel
+@{
+  ViewData["Title"] = "Value";
+}
+<h1>Value</h1>
+@if (Model.Error is not null)
+{
+  <p class="error" role="alert">@Model.Error</p>
+}
+@if (Model.Display is not null)
+{
+  <p>Key @Model.KeyName type @Model.TypeName tenant @Model.TenantName</p>
+  <pre>@Model.Display</pre>
+}

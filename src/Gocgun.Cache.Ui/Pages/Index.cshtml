@@ -1,0 +1,28 @@
+﻿@page
+@model Gocgun.Cache.Ui.Pages.IndexModel
+@{
+  ViewData["Title"] = "Redis connection";
+}
+<h1>Redis connection</h1>
+<p>Credentials stay in this process. A saved profile stores the password only as Data Protection ciphertext.</p>
+@if (Model.Error is not null)
+{
+  <p class="error" role="alert">@Model.Error</p>
+}
+<form method="post">
+  <label for="host">Host</label>
+  <input id="host" name="Host" value="@Model.Host" autocomplete="off" required />
+  <label for="port">Port</label>
+  <input id="port" name="Port" value="@Model.Port" inputmode="numeric" required />
+  <label for="user">User name</label>
+  <input id="user" name="UserName" value="@Model.UserName" autocomplete="off" />
+  <label for="password">Password</label>
+  <input id="password" name="Password" type="password" autocomplete="off" />
+  <label for="database">Database</label>
+  <input id="database" name="Database" value="@Model.Database" inputmode="numeric" />
+  <label for="tls"><input id="tls" name="Tls" type="checkbox" value="true" /> TLS</label>
+  <label for="profile">Profile name</label>
+  <input id="profile" name="ProfileName" value="session" />
+  <label for="save"><input id="save" name="SaveProfile" type="checkbox" value="true" /> Save profile</label>
+  <button type="submit">Use connection</button>
+</form>

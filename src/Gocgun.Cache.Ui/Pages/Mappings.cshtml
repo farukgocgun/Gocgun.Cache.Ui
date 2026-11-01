@@ -1,0 +1,20 @@
+﻿@page
+@model Gocgun.Cache.Ui.Pages.MappingsModel
+@{
+  ViewData["Title"] = "Mappings";
+}
+<h1>Contract mappings</h1>
+@if (Model.Error is not null)
+{
+  <p class="error" role="alert">@Model.Error</p>
+}
+<form method="post">
+  <label for="folder">Contract assembly folder</label>
+  <input id="folder" name="Folder" value="@Model.Folder" />
+  <label for="pattern">Key pattern</label>
+  <input id="pattern" name="Pattern" value="@Model.Pattern" />
+  <label for="contract">Contract full name</label>
+  <input id="contract" name="ContractType" value="@Model.ContractType" />
+  <button type="submit">Save mapping</button>
+</form>
+<pre>@Model.ExportText</pre>

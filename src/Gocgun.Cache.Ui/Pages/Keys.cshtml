@@ -1,0 +1,41 @@
+﻿@page
+@model Gocgun.Cache.Ui.Pages.KeysModel
+@{
+  ViewData["Title"] = "Keys";
+}
+<h1>Keys</h1>
+<p>Read commands only. <code>KEYS</code> is rejected.</p>
+@if (Model.Error is not null)
+{
+  <p class="error" role="alert">@Model.Error</p>
+}
+<form method="post">
+  <label for="pattern">Match pattern</label>
+  <input id="pattern" name="Pattern" value="@Model.Pattern" required />
+  <label for="pageSize">Page size</label>
+  <input id="pageSize" name="PageSize" value="@Model.PageSize" inputmode="numeric" />
+  <label for="cursor">Cursor</label>
+  <input id="cursor" name="Cursor" value="@Model.Cursor" />
+  <label for="tenant">Tenant filter</label>
+  <input id="tenant" name="Tenant" value="@Model.Tenant" />
+  <button type="submit">Scan</button>
+</form>
+@if (Model.Rows.Count > 0)
+{
+  <p>Next cursor @Model.NextCursor</p>
+  <table>
+    <thead><tr><th>Key</th><th>Type</th><th>TTL</th><th>Size</th><th>Tenant</th></tr></thead>
+    <tbody>
+    @foreach (var row in Model.Rows)
+    {
+      <tr>
+        <td><a href="/Value?key=@Uri.EscapeDataString(row.Key)">@row.Key</a></td>
+        <td>@row.Type</td>
+        <td>@row.TtlSeconds</td>
+        <td>@row.SizeBytes</td>
+        <td>@row.Tenant</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+}

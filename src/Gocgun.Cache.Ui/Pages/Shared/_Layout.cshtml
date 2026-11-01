@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@ViewData["Title"]</title>
+  <style>
+    body { font-family: sans-serif; margin: 1rem; max-width: 48rem; line-height: 1.4; }
+    label { display: block; margin-top: 0.75rem; }
+    input, textarea, select { font: inherit; width: 100%; box-sizing: border-box; }
+    button { font: inherit; margin-top: 0.75rem; }
+    .notice { background: #f4f1ea; padding: 0.75rem; }
+    .error { color: #8a1f11; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { text-align: left; padding: 0.25rem; border-bottom: 1px solid #ccc; }
+    pre { white-space: pre-wrap; word-break: break-word; }
+    nav a { margin-right: 0.75rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="notice" lang="tr">KVKK: bu araç kişisel veri içerebilen önbellek içeriğini gösterir. Değerler diske yazılmaz. Şifreli alanlar çözülmez.</p>
+    <p class="notice" lang="en">KVKK: this tool can show personal data from the cache. Values are not written to disk. Encrypted fields stay ciphertext.</p>
+    <nav>
+      <a href="/">Connection</a>
+      <a href="/Keys">Keys</a>
+      <a href="/Mappings">Mappings</a>
+    </nav>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+      <form method="post" asp-page="/Logout">
+        <button type="submit">Log out</button>
+      </form>
+    }
+  </header>
+  <main>
+    @RenderBody()
+  </main>
+</body>
+</html>

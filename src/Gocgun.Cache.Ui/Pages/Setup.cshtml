@@ -1,0 +1,19 @@
+﻿@page
+@model Gocgun.Cache.Ui.Pages.SetupModel
+@{
+  ViewData["Title"] = "Set password";
+}
+<h1>Set the local password</h1>
+@if (Model.Error is not null)
+{
+  <p class="error" role="alert">@Model.Error</p>
+}
+<form method="post">
+  <label for="token">Setup token (printed to the console at startup)</label>
+  <input id="token" name="Token" type="password" autocomplete="off" required />
+  <label for="password">Password (at least 12 characters)</label>
+  <input id="password" name="Password" type="password" autocomplete="new-password" required />
+  <label for="confirm">Confirm password</label>
+  <input id="confirm" name="Confirm" type="password" autocomplete="new-password" required />
+  <button type="submit">Save password</button>
+</form>

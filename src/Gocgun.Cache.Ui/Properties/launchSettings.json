@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Gocgun.Cache.Ui": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:52858;http://localhost:52861"
+    }
+  }
+}

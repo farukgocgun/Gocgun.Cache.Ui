@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <RootNamespace>Gocgun.Cache.Ui</RootNamespace>
+    <AssemblyName>gocgun-cache-ui</AssemblyName>
+    <IsPackable>true</IsPackable>
+    <PackageId>Gocgun.Cache.Ui</PackageId>
+    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
+    <Description>Read-only Redis diagnostic UI for protobuf cache values.</Description>
+    <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Gocgun.Cache.Ui.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Gocgun.Diagnostics.Shared\Gocgun.Diagnostics.Shared.csproj" />
+    <PackageReference Include="StackExchange.Redis" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

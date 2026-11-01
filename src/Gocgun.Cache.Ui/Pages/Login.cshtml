@@ -1,0 +1,20 @@
+﻿@page
+@model Gocgun.Cache.Ui.Pages.LoginModel
+@{
+  ViewData["Title"] = "Login";
+}
+<h1>Login</h1>
+@if (Model.Error is not null)
+{
+  <p class="error" role="alert">@Model.Error</p>
+}
+<form method="post">
+  <label for="password">Password</label>
+  <input id="password" name="Password" type="password" autocomplete="current-password" required />
+  @if (Model.Locked)
+  {
+    <label for="unlock">Unlock code (printed in the tool's console)</label>
+    <input id="unlock" name="UnlockCode" type="text" autocomplete="off" />
+  }
+  <button type="submit">Login</button>
+</form>
