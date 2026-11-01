@@ -19,3 +19,7 @@ License: AGPL-3.0-only (`LICENSE`). Copyright holder exception: `LICENSE-EXCEPTI
 ```bash
 dotnet run --project src/Gocgun.Cache.Ui/Gocgun.Cache.Ui.csproj
 ```
+
+## Publishing to nuget.org
+
+Run `scripts/publish.sh` (or `scripts/publish.ps1` on Windows). It dispatches the manual `release.yml` workflow of each dependency first, in dependency order (Gocgun.Diagnostics.Shared, Gocgun.Cache.Ui), then of this package, waiting for each run and stopping on the first failure. Requires the GitHub CLI signed in with `gh auth login`; the `nuget` environment and the nuget.org Trusted Publishing policy must exist in each repository.
