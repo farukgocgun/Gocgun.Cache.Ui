@@ -4,7 +4,7 @@
     <AssemblyName>gocgun-cache-ui</AssemblyName>
     <IsPackable>true</IsPackable>
     <PackageId>Gocgun.Cache.Ui</PackageId>
-    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Read-only Redis diagnostic UI for protobuf cache values.</Description>
     <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
