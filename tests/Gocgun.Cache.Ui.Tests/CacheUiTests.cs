@@ -142,7 +142,7 @@ public sealed class CacheUiTests
         Assert.DoesNotContain("PAYLOADSECRET", audit, StringComparison.Ordinal);
         Assert.DoesNotContain("REDISPASSWORD", audit, StringComparison.Ordinal);
         var project = await File.ReadAllTextAsync(FindUp("Gocgun.Cache.Ui.csproj"));
-        Assert.Contains("AGPL-3.0-only", project, StringComparison.Ordinal);
+        Assert.Contains("MIT", project, StringComparison.Ordinal);
         Assert.DoesNotContain("Gocgun.Identity", project, StringComparison.Ordinal);
     }
 
